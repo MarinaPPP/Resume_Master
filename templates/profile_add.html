@@ -1,0 +1,214 @@
+{% extends 'main_page.html' %}
+{% block content %}
+    <div class="row myform" style="--bs-gutter-x: 0;">
+        <div class="col-sm-6">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div id="form_step" style="text-align: center; margin-top: 5vh;" class="">
+                    <h1>Основна інформація</h1>
+                    <input class="form-control" type="file" name="photo">
+                    <input class="form-control" type="text" name="first_name" placeholder="Ім'я">
+                    <input class="form-control" type="text" name="last_name" placeholder="Прізвище">
+                    <input class="form-control" type="text" name="city" placeholder="Місто">
+                    <input class="form-control" type="text" name="street" placeholder="вулиця">
+                    <input class="form-control" type="text" name="position" placeholder="положення">
+                    <input class="form-control" type="text" name="phone_number" placeholder="Номер телефону">
+                    <input class="form-control" type="email" name="email" placeholder="Електронная адреса">
+                    <li style="background-color: green; cursor:pointer" class="form-control" id="form_step_next">Далі
+                    </li>
+                </div>
+                <div id="form_step" style="text-align: center; margin-top: 5vh;" class="d-none">
+                    <h1>Освіта</h1>
+                    <input class="form-control" type="text" name="school" placeholder="Назва учбового закладу">
+                    <input class="form-control" type="text" name="degree" placeholder="Рівень">
+                    <input class="form-control" type="text" name="subject" placeholder="Напрямок">
+                    <input class="form-control" type="month" name="started">
+                    <input class="form-control" type="month" name="ended"><br>
+                    <li style='background-color: coral; cursor:pointer' class="form-control" id="form_step_back">
+                        Назад
+                    </li>
+                    <li style="background-color: green; cursor:pointer" class="form-control" id="form_step_next">Далі
+                    </li>
+                </div>
+                <div id="form_step" style="text-align: center; margin-top: 5vh;" class="d-none">
+                    <h1>Сертифікати</h1>
+                    <li style="background-color: black; cursor:pointer; color: white; width: 40%; display: inline"
+                        class="form-control" id="add_certification">Додати сертифікат
+                    </li>
+                    <div id="certifications_div">
+                        <div>
+                            <input class="form-control" type="text" name="certificate_name" placeholder="Назва">
+                            <input class="form-control" type="text" name="certificate_institution" placeholder="Назва закладу">
+                            <input class="form-control" type="month" name="certificate_ended"><br>
+                        </div>
+                    </div>
+                    <li style='background-color: coral; cursor:pointer' class="form-control" id="form_step_back">
+                        Назад
+                    </li>
+                    <li style="background-color: green; cursor:pointer" class="form-control" id="form_step_next">Далі
+                    </li>
+                </div>
+                <div id="form_step" style="text-align: center; margin-top: 5vh;" class="d-none">
+                    <h1>Іноземні мови</h1>
+                    <li style="background-color: black; cursor:pointer; color: white; width: 40%; display: inline"
+                        class="form-control" id="add_language">Додати мову
+                    </li>
+                    <div id="languages_div">
+                        <div>
+                            <input class="form-control" type="text" name="language_name" placeholder="Мова">
+<!--                            
+                            <input class="form-control" type="text" name="language_level" placeholder="A1">
+-->                            
+                            <select class="form-control" name="language_level" style="margin-bottom: 2vh">
+                                <option value="0">A1</option>
+                                <option value="1">A2</option>
+                                <option value="2">B1</option>
+                                <option value="3">B2</option>
+                                <option value="4">C1</option>
+                                <option value="5">C2</option>
+                            </select>
+                            
+                        </div>
+                    </div>
+                    <li style='background-color: coral; cursor:pointer' class="form-control" id="form_step_back">
+                        Назад
+                    </li>
+                    <li style="background-color: green; cursor:pointer" class="form-control" id="form_step_next">
+                        Далі
+                    </li>
+                </div>
+                <div id="form_step" style="text-align: center; margin-top: 5vh;" class="d-none">
+                    <h1>Професійне резюме</h1>
+                    <textarea class="form-control" name="about_me" rows="4" cols="50">Мої навички</textarea>
+                    <h1>Посилання</h1>
+                    <li style="background-color: black; cursor:pointer; color: white; width: 40%; display: inline"
+                        class="form-control" id="add_link">Додати посилання
+                    </li>
+                    <div id="links_div">
+                        <div>
+                            <input class="form-control" type="text" name="link" placeholder="Посилання">
+                        </div>
+                    </div>
+                    <li style='background-color: coral; cursor:pointer' class="form-control" id="form_step_back">
+                        Назад
+                    </li>
+                    <li style="background-color: green; cursor:pointer" class="form-control" id="form_step_next">Далі
+                    </li>
+                </div>
+                <div id="form_step" style="text-align: center; margin-top: 5vh;" class="d-none">
+                    <h1>Досвід</h1>
+                    <li style="background-color: black; cursor:pointer; color: white; width: 40%; display: inline"
+                        class="form-control" id="add_experience">Додати досвід
+                    </li>
+                    <div id="experience_div">
+                        <input class="form-control" type="text" name="company" placeholder="Назва підприємства">
+                        <input class="form-control" type="text" name="company_function" placeholder="Функції підприємства">
+                        <input class="form-control" type="date" name="company_started">
+                        <input class="form-control" type="date" name="company_ended">
+                        <textarea class="form-control" name="description" rows="4" cols="50">Обов'язки</textarea>
+                    </div>
+                    <li style='background-color: coral; cursor:pointer' class="form-control" id="form_step_back">
+                        Назад
+                    </li>
+                    <li style="background-color: green; cursor:pointer" class="form-control" id="form_step_next">Далі
+                    </li>
+                </div>
+                <div id="form_step" style="text-align: center; margin-top: 5vh;" class="d-none">
+                    <h1>Навички</h1>
+                    <li style="background-color: black; cursor:pointer; color: white; width: 40%; display: inline"
+                        class="form-control" id="add_skill">Додати навички
+                    </li>
+                    <div id="skill_div">
+                        <div>
+                            <input class="form-control" type="text" name="skill" placeholder="програмування на Python">
+                        </div>
+                    </div>
+                    <li style='background-color: coral; cursor:pointer' class="form-control" id="form_step_back">
+                        Назад
+                    </li>
+                    <button style="background-color: green" class="form-control" type='submit' id="form_step_next">
+                        Зберегти
+                    </button>
+                </div>
+            </form>
+        </div>
+
+
+        
+        <div style="text-align: center;" class="col-sm-6 cvsee">
+            <h1> Попередній перегляд </h1>
+            <div style="margin: auto; width: 80%; height: 100vh; background-color: green">
+                <div class="row" style="--bs-gutter-x: 0; height: 10vh;">
+                    {#                    Left side#}
+
+                    <div style="margin-top: 2vh;" class="col-4">
+                        <div style="margin: auto; height: 8vh; background-color: red;"> Фотографія</div>
+                    </div>
+                    {#                      Right side#}
+                    <div style="margin-top: 2vh;" class="col-8">
+                        <div style="height: 100%">
+                            <span id="first_name"></span> <span id="last_name"></span><br>
+                            <span id="position"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="--bs-gutter-x: 0; height: 10vh; margin-top: 2vh;">
+                    <div style="margin-top: 2vh;" class="col-4">
+                        <div style="text-align: left">
+                            <h2> Контакти </h2>
+                            <span id="city"></span>,<br>
+                            <span id="street"> </span><br>
+                            <span id="phone_number"></span><br>
+                            <span id="email"></span><br>
+                        </div>
+                        <div style="text-align: left; margin-top: 4vh;">
+                            <h3> Освіта </h3>
+                            <span id="school"></span><br>
+                            <span id="subject"></span>,
+                            <span id="degree"></span><br>
+                            <span>Початок: </span><span id="started"></span><br>
+                            <span>Закінчення: </span><span id="ended"></span>
+                        </div>
+                        <div style="text-align: left; margin-top: 3vh;">
+                            <h3> Портфоліо, веб-сайти</h3>
+                            <span id="link"></span>
+                        </div>
+                        <div style="text-align: left; margin-top: 3vh;">
+                            <h3> Сертифікати </h3>
+                            <span id="certificate_name"></span>
+                            <span id="certificate_institution"></span>
+                            <span id="certificate_ended"></span>
+                        </div>
+                        <div style="text-align: left; margin-top: 3vh;">
+                            <h3> Іноземні мови</h3>
+                            <span id="language_name"></span>  <span id="language_level"></span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 2vh;" class="col-8">
+                        <div>
+                            <h3>Професіональне резюме</h3>
+                            <span id="professional_summary"></span>
+                        </div>
+                        <div style="text-align: left">
+                            <h3>Навички</h3>
+                            <span id="skill"></span>
+                            <!--
+                            {% for skill in skills %}
+                                <span id="skill">{{ skill }}</span>
+                            {% endfor %}
+                            -->
+                        </div>
+                        <div style="text-align: left">
+                            <h3>Досвід роботи</h3>
+                            <span id="company"></span><br>
+                            <span id="company_function"></span><br>
+                            <span id="company_started"></span>
+                            <span id="company_ended"></span>
+                            <span id="description"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
