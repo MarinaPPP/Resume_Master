@@ -4,3 +4,6 @@ form div input, textarea {
 .cvsee {
     margin-top: 5vh;
 }
+div {
+    font-family: DejaVuSans;
+}

@@ -1,8 +1,11 @@
+from __future__ import unicode_literals
 from django.http import HttpResponse
 from django.views import View
 from django.shortcuts import render
 from CVapplication.models import Profile
 from CVapplication.render_pdf import render_to_pdf
+
+from django.conf import settings
 
 
 class MainPageView(View):
