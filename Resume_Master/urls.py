@@ -24,11 +24,11 @@ from register.views import LoginView, LogoutView, RegisterView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainPageView.as_view(), name='main_page'),
-    path('create/', ResumeCreator.as_view(), name='cv_maker'),
-    path('pdf/', GeneratePdf.as_view(), name='pdf'),
-    path('accounts/login/', LoginView.as_view(), name='login'),
-    path('accounts/logout/', LogoutView.as_view(), name='logout'),
-    path('accounts/register/', RegisterView.as_view(), name='register')
+    path('create', ResumeCreator.as_view(), name='cv_maker'),
+    path('pdf', GeneratePdf.as_view(), name='pdf'),
+    path('accounts/login', LoginView.as_view(), name='login'),
+    path('accounts/logout', LogoutView.as_view(), name='logout'),
+    path('accounts/register', RegisterView.as_view(), name='register')
 ]
 urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

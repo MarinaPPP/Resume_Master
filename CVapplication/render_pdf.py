@@ -5,7 +5,7 @@ import os
 from django.conf import settings
 
 from xhtml2pdf import pisa
-from reportlab.pdfbase.ttfonts import TTFont
+#from reportlab.pdfbase.ttfonts import TTFont
 
 def fetch_pdf_resources(uri, rel):
     if uri.find(settings.MEDIA_URL) != -1:
